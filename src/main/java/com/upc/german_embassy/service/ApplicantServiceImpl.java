@@ -68,14 +68,6 @@ public class ApplicantServiceImpl implements ApplicantService {
         else return "No es elegible";
     }
 
-
-    public Applicant updateById (Long id) throws Exception{ //Preguntarle al profe
-        Applicant applicant = applicantRepository.findById(id).orElseThrow(()->new Exception("No se encontro el aplicante"));
-        return updateApplicant(applicant);
-    }
-
-
-
     public List<Applicant> listApplicantsOrderByName() {
         List<Applicant> list = applicantRepository.findAllByOrderByNameAsc();
         for (Applicant a : list) {

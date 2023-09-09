@@ -92,20 +92,6 @@ public class ApplicantController {
         return new ResponseEntity<>(listDTO,HttpStatus.OK);
     }
 
-    @PutMapping("/applicant/update/{id}")
-    public ResponseEntity<ApplicantDTO> updateApplicantByid(@PathVariable(value="id") Long id){
-        Applicant applicant;
-        ApplicantDTO dto;
-        try {
-            applicant = applicantService.updateById(id);
-            dto = convertToDTO(applicant);
-        }
-        catch (Exception e){
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No se encontró el curso");
-        }
-        return new ResponseEntity<ApplicantDTO>(dto, HttpStatus.OK);
-    }
-
 
     @GetMapping("/applicant/qualified/{dni}")
     public String applicantIsEligible(@PathVariable(value="dni")String dni){

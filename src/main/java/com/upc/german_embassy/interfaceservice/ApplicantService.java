@@ -14,8 +14,6 @@ public interface ApplicantService {
     public List<Applicant> listApplicants();
     public List<Applicant> listSingleApplicants();
     public String applicantIsEligible(String dni);
-
-    public Applicant updateById (Long id) throws Exception;
     public List<Applicant> listApplicantsOrderByName();
     public String getAverage_EligibleApplicants();
 }
