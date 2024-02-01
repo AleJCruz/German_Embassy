@@ -14,6 +14,7 @@ FROM openjdk:11-jre-slim
 WORKDIR /app
 COPY --from=builder /app/target/German_Embassy-0.0.1-SNAPSHOT.jar ./app.jar
 
-EXPOSE 8080
-
-CMD ["java", "-jar", "app.jar"]
+# Agregar línea para ejecutar el script Bash que recupera los secretos
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+ENTRYPOINT ["/entrypoint.sh"]
